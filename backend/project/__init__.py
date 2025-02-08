@@ -17,10 +17,13 @@ def create_app(test_config=None):
     # ----- BLUEPRINT IMPORTS ----- #
     from project.auth.logon import logon
     from project.swipe.swipe_logic import swipe
+    from project.friends.friends_list import friends_list
+    
 
     # ----- REGISTERING BLUEPRINTS ----- #
     app.register_blueprint(logon)
     app.register_blueprint(swipe)
+    app.register_blueprint(friends_list)
 
     # lets us load testing configs when we want, otherwise just grabs
     # whatever is in the config.py file in the current instance folder
