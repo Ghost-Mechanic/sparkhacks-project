@@ -1,6 +1,6 @@
 # ABOUT: This page handles all logon logic.
 
-from flask import Blueprint, request, redirect, url_for
+from flask import Blueprint, request, redirect, url_for, session
 from project.db import get_db
 
 logon = Blueprint('logon', __name__)
@@ -69,3 +69,23 @@ def login():
         password = request.form['password']
         db = get_db()
         error = None
+
+        # we handle user logins first.
+        # checking to see if the user login worked.
+        user = db.execute( 'SELECT * FROM users WHERE username = ? AND password = ?', (username,password)).fetchone()
+
+        # if the username & password does not match a user, maybe a business was trying to log in?
+        if user is None:
+            business = db.execute('SELECT * FROM businesses WHERE business_name = ? AND password = ?', (username, password)).fetchone()
+
+        # If both queries were none, the person input an incorrect username or password.
+        if business is None:
+            error = 'Incorrect username and/or password.'
+        
+        # if either query worked, let's log in!
+        if error is None:
+            # unsure exactly what session does. need to look into this.
+            session.clear() 
+            session['user_id'] = user['id']
+            return # SHOULD BE redirect(url_for(INSERT HOMEPAGE HERE))
+    return # NEED TO DO BOTH RETURNS LATER!!
