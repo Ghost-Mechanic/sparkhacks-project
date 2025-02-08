@@ -22,16 +22,21 @@ def business_profile(business_name):
             db.execute("INSERT INTO likedBusinesses (username, business_name) VALUES (?, ?)", 
                        (username, business_name))
             db.commit()
-    
-    # now we get the info of the next business
-    next_business = db.execute("SELECT business_name FROM businesses where business_name != ? ORDER BY RANDOM() LIMIT 1",
+        except db.IntegrityError:
+            return jsonify({'error': 'Business already liked'}), 400
+        
+    if request.method == 'POST' and 'not_liked' in request.form:
+        # now we get the info of the next business
+        next_business = db.execute("SELECT business_name FROM businesses where business_name != ? ORDER BY RANDOM() LIMIT 1",
                                 (business_name),).fetchone()
 
     # returning information about the current business and next business to be displayed to the front-end.
     return jsonify({
         'business_name': business['business_name'],
         'business_type': business['business_type'],
-        'about_me': business['about_me']
-    },
-    'next_business': next_business['business_name']) # /swipe/<next_business_name> to create our business loop by navigating to the next business.
+        'about_me': business['about_me'],
+        'next_business': next_business['business_name']
+    })
+    
+    # /swipe/<next_business_name> to create our business loop by navigating to the next business.
 
