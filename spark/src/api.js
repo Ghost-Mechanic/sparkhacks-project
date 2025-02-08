@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000/";
+const BASE_URL = "ghostmechanic.github.io/biteswipe";
 
 export async function fetchData(endpoint) {
   try {
