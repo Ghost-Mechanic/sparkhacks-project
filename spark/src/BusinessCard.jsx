@@ -38,7 +38,7 @@ const BusinessCard = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '75%'  // Match the height of regular business cards
+        height: '75%'
       }}>
         <h2 style={{ 
           color: 'white', 

@@ -4,9 +4,6 @@ const RegisterUser = () => {
     const [formData, setFormData] = useState({
         username: '',
         password: '',
-        city: '',
-        age: '',
-        favoriteFood: ''
     });
     const [error, setError] = useState('');
     // const navigate = useNavigate();
@@ -72,54 +69,6 @@ const RegisterUser = () => {
                                 onChange={(e) => setFormData({
                                     ...formData,
                                     password: e.target.value
-                                })}
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="city" className="block text-sm font-medium text-gray-700">
-                                City
-                            </label>
-                            <input
-                                id="city"
-                                type="city"
-                                required
-                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
-                                value={formData.city}
-                                onChange={(e) => setFormData({
-                                    ...formData,
-                                    city: e.target.value
-                                })}
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="age" className="block text-sm font-medium text-gray-700" type="number" min="12" max="100">
-                                Age
-                            </label>
-                            <input
-                                id="age"
-                                type="age"
-                                required
-                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
-                                value={formData.age}
-                                onChange={(e) => setFormData({
-                                    ...formData,
-                                    age: e.target.value
-                                })}
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="favoriteFood" className="block text-sm font-medium text-gray-700">
-                                Favorite Food
-                            </label>
-                            <input
-                                id="favoriteFood"
-                                type="favoriteFood"
-                                required
-                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
-                                value={formData.favoriteFood}
-                                onChange={(e) => setFormData({
-                                    ...formData,
-                                    favoriteFood: e.target.value
                                 })}
                             />
                         </div>
