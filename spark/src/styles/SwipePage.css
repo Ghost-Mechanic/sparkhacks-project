@@ -10,16 +10,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 0;
 }
 
 .business-card {
-    width: 60%;
-    height: 45%;
-    background-color: black;
-    padding: 40px;
+    width: 80%;
+    height: 70%;
+    /* background-color: gray; */
     border-radius: 16px;
     justify-self: center;
     align-self: center;
+    overflow: hidden;
 }
 
 .footer {

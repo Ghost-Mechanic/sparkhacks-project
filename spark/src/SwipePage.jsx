@@ -3,6 +3,7 @@ import "./styles/SwipePage.css";
 import forumImage from "./assets/forumsIcon.png";
 import swipeImage from "./assets/mainSwipeIcon.png";
 import profileImage from "./assets/userProfileIcon.png";
+import BusinessCard from "./BusinessCard.jsx";
 
 function SwipePage() {
 
@@ -13,7 +14,7 @@ function SwipePage() {
                     <h1>App Name</h1>
                 </div>
                 <div className="business-card">
-
+                    <BusinessCard />
                 </div>
                 <footer className="footer">
                     <div className="footer-images" >
