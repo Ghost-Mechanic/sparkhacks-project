@@ -1,14 +1,9 @@
 # ABOUT: This page handles all logon logic.
 
-from flask import Blueprint, request, redirect, url_for, session
+from flask import Blueprint, request, redirect, url_for, session, flash
 from project.db import get_db
 
 logon = Blueprint('logon', __name__)
-
-@logon.route('/logon')
-
-def hello():
-    return 'We are now on the logon page!'
 
 @logon.route('/register_user', methods=['GET', 'POST'])
 def register_user():
@@ -34,6 +29,7 @@ def register_user():
             else:
                 return redirect(url_for("logon.login")) # redirects user to login page once they have registered.
             
+        flash(error)
     return # TO DO !!! FINISH THIS 
 
 @logon.route('/register_business', methods=['GET', 'POST'])
@@ -59,7 +55,9 @@ def register_business():
                 error = f"User {business_name} is already registered."
             else:
                 return redirect(url_for("logon.login")) # redirects user to login page once they have registered.
-        return #TO DO !! FINISH THIS 
+            
+        flash(error)
+    return #TO DO !! FINISH THIS 
 
 
 @logon.route('/login', methods=('GET', 'POST'))
@@ -87,5 +85,12 @@ def login():
             # unsure exactly what session does. need to look into this.
             session.clear() 
             session['user_id'] = user['id']
-            return # SHOULD BE redirect(url_for(INSERT HOMEPAGE HERE))
+            return # SHOULD BE redirect(url_for(INSERT POST-LOGIN HOMEPAGE HERE))
+        
+        flash(error)
     return # NEED TO DO BOTH RETURNS LATER!!
+
+@logon.route('/logout')
+def logout():
+    session.clear()
+    return # SHOULD BE redirect(url_for(INSERT HOMEPAGE HERE))
