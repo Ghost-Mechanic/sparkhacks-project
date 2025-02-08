@@ -4,22 +4,6 @@ import sqlite3 as sql
 
 friends_list= Blueprint('friends_list', __name__)
 
-# @logon.route('/friends', methods=['GET', 'POST'])
-# def add_friend(user_to_add):
-#    db = get_db()
-#    their_username = db.execute("SELECT username FROM users WHERE username = ?", (user_to_add,)).fetchone()
-   
-#    if their_username is None:
-#       return 
-#    if request.method == 'POST':
-#       my_username = session.get('user_id')
-      
-#       try:
-#          db.execute("")
-#          db.commit()
-#       except db.IntegrityError:
-#             return jsonify({'error': 'IGNORE'}), 400 #idk what 400 does lol
-
 # URL route to adding friends page
 @friends_list.route('/add_friend', methods=['POST'])
 def add_friend():
@@ -28,6 +12,7 @@ def add_friend():
     user1 = data.get('user1')
     user2 = data.get('user2')
 
+   # error checking
     if not user1 or not user2:
         return jsonify({'error': 'Both usernames are required'}), 400
     

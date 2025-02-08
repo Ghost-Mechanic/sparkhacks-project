@@ -1,5 +1,7 @@
 import os
 from flask import Flask
+from flask_cors import CORS
+
 
 
 def create_app(test_config=None):
@@ -7,6 +9,7 @@ def create_app(test_config=None):
     # __name__ is used whenever this file is imported
     # 2nd arg makes config files relative to the instance folder
     app = Flask(__name__, instance_relative_config=True)
+    CORS(app)
     # sets default configuration stuff
     app.config.from_mapping(
         SECRET_KEY='dev', # change if we ever actually deploy lol
@@ -41,11 +44,23 @@ def create_app(test_config=None):
         pass
     # annotation that connects between url "/hello" on localhost
     # and simply runs the function
-    @app.route('/hello')
-    def hello():
-        return 'Hello, World! We reinitialized our database :3'
+    
+    # @app.route('/hello')
+    # def hello():
+    #     return 'Hello, World! We reinitialized our database :3'
         
     from . import db
+    from flask import send_from_directory
+    
     db.init_app(app)
+
+    @app.route('/')
+    def serve_react():
+        return send_from_directory('../spark/dist', 'index.html')
+
+    @app.route('/<path:path>')
+    def serve_static_files(path):
+        return send_from_directory('../spark/dist', path)
+
 
     return app
