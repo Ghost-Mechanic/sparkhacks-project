@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import addFriendIcon from "./assets/addFriendIcon.png";
 import invitationIcon from "./assets/invitationIcon.png";
-import forumsIcon from "./assets/forumsIcon.png";
+import forumsIcon from "./assets/compass.png";
 import mainSwipeIcon from "./assets/mainSwipeIcon.png";
 import inviteFriendIcon from "./assets/inviteFriendIcon.png";
 import userProfileIcon from "./assets/userProfileIcon.png";
@@ -37,6 +37,10 @@ const UserDashboard = () => {
 
   const handleSwipeClick = () => {
     navigate('/');
+  };
+  
+  const handleForumsClick = () => {
+    navigate('/forums-page');
   };
 
   return (
@@ -129,7 +133,7 @@ const UserDashboard = () => {
 
       <footer style={styles.footer}>
         <div style={styles.footerImages}>
-          <img src={forumsIcon} height="32px" width="32px" alt="Forum" />
+          <img src={forumsIcon} height="32px" width="32px" alt="Forum" style={styles.profileImage} onClick={handleForumsClick}/>
           <img src={mainSwipeIcon} height="44px" width="44px" alt="Swipe" onClick={handleSwipeClick} style={styles.profileImage} />
           <img src={userProfileIcon} height="32px" width="32px" alt="Profile" style={styles.profileImage} />
         </div>
@@ -145,12 +149,13 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     height: "100vh",
+    width: '100vw',
     backgroundColor: "white",
     position: "relative",
     marginTop: "-20px",
   },
   appName: {
-    fontFamily: 'DynaPuff, sans-serif', 
+    fontFamily: 'DynaPuff, sans-serif',
     fontSize: '1rem',
     color: '#333',
     marginTop: '-165px',

@@ -1,9 +1,9 @@
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Asap+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=DynaPuff:wght@400..700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Asap+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=DynaPuff:wght@400..700&display=swap');
 </style>
 
 import { useNavigate } from 'react-router-dom';
-import forumImage from './assets/forumsIcon.png';
+import forumImage from './assets/compass.png';
 import swipeImage from './assets/mainSwipeIcon.png';
 import profileImage from './assets/userProfileIcon.png';
 import BusinessCard from "./BusinessCard.jsx";
@@ -14,6 +14,11 @@ function SwipePage() {
     const handleProfileClick = () => {
         navigate('/user-dashboard');
     };
+
+    const handleForumsClick = () => {
+        navigate('/forums-page');
+    };
+
 
     return (
         <div style={styles.mainContainer}>
@@ -27,18 +32,12 @@ function SwipePage() {
 
             <footer style={styles.footer}>
                 <div style={styles.footerImages}>
-                    <img src={forumImage} height="44px" width="44px" />
-                    <img src={swipeImage} height="44px" width="44px" style={styles.profileImage} />
-                    <img
-                        src={profileImage}
-                        height="40px"
-                        width="40px"
-                        onClick={handleProfileClick}
-                        style={styles.profileImage}
-                    />
+                    <img src={forumImage} height="32px" width="32px" alt="Forum" onClick={handleForumsClick} style={styles.profileImage} />
+                    <img src={swipeImage} height="44px" width="44px" alt="Swipe" style={styles.profileImage} />
+                    <img src={profileImage} height="32px" width="32px" alt="Profile" onClick={handleProfileClick} style={styles.profileImage} />
+
                 </div>
             </footer>
-
         </div>
     );
 }
@@ -49,7 +48,7 @@ const styles = {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '100vh',
+        height: "100vh",
         width: '100vw',
         margin: 0,
         padding: 0,
