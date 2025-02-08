@@ -40,7 +40,9 @@ const RegisterUser = () => {
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundImage: 'linear-gradient(to top,rgb(252, 160, 150), #F75F5F)'  }}>
+
             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', maxWidth : '450px', width:'100%', height:'30%',backgroundColor: 'rgba(255, 255, 255, 0.85)', borderRadius:'12px', border:'10px solid white'}}>
+                <img src="src/assets/mainSwipeIcon.png" style={{width:'100px', height:'auto'}}/>
                 <h2 style={{padding: '12px', justifyContent:'center', color: 'black'}}>Register User Account</h2>
                 {error && <div className="text-red-500 text-center">{error}</div>}
                 <form onSubmit={handleSubmit} className="mt-8 space-y-6">
