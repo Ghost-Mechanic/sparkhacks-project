@@ -13,7 +13,7 @@ def business_stats(business_name):
     # might be unnecessary.
     business_name = session.get('business_id')
     users = db.execute("""
-    SELECT users.username, users.city, users.favorite_food
+    SELECT users.username
     FROM likedBusinesses
     JOIN users ON likedBusiness.username = users.username
     WHERE likedBusinesses.business_name = ?""", (business_name,)).fetchall()
@@ -26,9 +26,6 @@ def business_stats(business_name):
     users_list = [
         {
             'username' : user['username'],
-            'city': user['city'],
-            'age': user['age']
-            'favorite_food' : user['favorite_food']
         }
         for user in users
     ]

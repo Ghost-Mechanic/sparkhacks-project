@@ -6,10 +6,7 @@ DROP TABLE IF EXISTS friendships;
 CREATE TABLE users (
   user_id INTEGER PRIMARY KEY AUTOINCREMENT,
   username TEXT UNIQUE NOT NULL,
-  password TEXT NOT NULL,
-  city TEXT NOT NULL,
-  age INTEGER NOT NULL,
-  favorite_food TEXT NOT NULL
+  password TEXT NOT NULL
 );
 
 CREATE TABLE likedBusinesses (
@@ -23,7 +20,7 @@ CREATE TABLE likedBusinesses (
 CREATE TABLE businesses (
   business_id INTEGER PRIMARY KEY AUTOINCREMENT,
   business_name TEXT UNIQUE NOT NULL,
-  password TEXT NOT NULL
+  password TEXT NOT NULL,
   business_type TEXT,
   about_me TEXT
 );

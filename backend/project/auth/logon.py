@@ -1,18 +1,20 @@
 # ABOUT: This page handles all logon logic.
 
 from flask import Blueprint, request, redirect, url_for, session, flash
+from flask_cors import cross_origin
 from project.db import get_db
 
 logon = Blueprint('logon', __name__)
 
 @logon.route('/register_user', methods=['GET', 'POST'])
+@cross_origin() # idek
 def register_user():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        city = request.form['city']
-        age = request.form['age']
-        fav_food = request.form['favorite food']
+        #city = request.form['city']
+        #age = request.form['age']
+        #fav_food = request.form['favoriteFood']
         db = get_db() # fetches database using function defined in db.py
         error = None
 
@@ -21,17 +23,11 @@ def register_user():
             error = 'Username is required.'
         elif not password:
             error = 'Password is required.'
-        elif not city:
-            error = 'City is required.'
-        elif not age:
-            error = 'Age is required.'
-        elif not fav_food:
-            error = 'Favorite food is required.'
 
         # if all is good, we put them in the database.
         if error is None:
             try:
-                db.execute("INSERT INTO users (username, password, city, age, favorite_food) VALUES (?,?, ?, ?, ?)", (username, password, city, age, fav_food))
+                db.execute("INSERT INTO users (username, password) VALUES (?,?, ?, ?, ?)", (username, password))
                 db.commit()
             except db.IntegrityError:
                 error = f"User {username} is already registered."
