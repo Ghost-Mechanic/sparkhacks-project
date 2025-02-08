@@ -27,13 +27,13 @@ def create_app(test_config=None):
     try:
         os.makedirs(app.instance_path)
     except OSError:
-        print("we tried making the directories for the instance path but failed; OS error")
-
+        pass
     # annotation that connects between url "/hello" on localhost
     # and simply runs the function
     @app.route('/hello')
     def hello():
-        return 'Hello, World!'
+        return 'Hello, World! We reinitialized our database :3'
+        
     from . import db
     db.init_app(app)
 
