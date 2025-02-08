@@ -12,9 +12,6 @@ def register_user():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        #city = request.form['city']
-        #age = request.form['age']
-        #fav_food = request.form['favoriteFood']
         db = get_db() # fetches database using function defined in db.py
         error = None
 
@@ -27,7 +24,7 @@ def register_user():
         # if all is good, we put them in the database.
         if error is None:
             try:
-                db.execute("INSERT INTO users (username, password) VALUES (?,?, ?, ?, ?)", (username, password))
+                db.execute("INSERT INTO users (username, password) VALUES (?,?)", (username, password))
                 db.commit()
             except db.IntegrityError:
                 error = f"User {username} is already registered."
