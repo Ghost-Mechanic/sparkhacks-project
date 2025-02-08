@@ -4,12 +4,18 @@ from flask import Flask
 
 def create_app(test_config=None):
     # create and configure the app
+    # __name__ is used whenever this file is imported
+    # 2nd arg makes config files relative to the instance folder
     app = Flask(__name__, instance_relative_config=True)
+    # sets default configuration stuff
     app.config.from_mapping(
-        SECRET_KEY='dev',
+        SECRET_KEY='dev', # change if we ever actually deploy lol
+        # defines the relative path to where we're keeping our db
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
     )
 
+    # lets us load testing configs when we want, otherwise just grabs
+    # whatever is in the config.py file in the current instance folder
     if test_config is None:
         # load the instance config, if it exists, when not testing
         app.config.from_pyfile('config.py', silent=True)
@@ -21,9 +27,10 @@ def create_app(test_config=None):
     try:
         os.makedirs(app.instance_path)
     except OSError:
-        pass
+        print("we tried making the directories for the instance path but failed; OS error")
 
-    # a simple page that says hello
+    # annotation that connects between url "/hello" on localhost
+    # and simply runs the function
     @app.route('/hello')
     def hello():
         return 'Hello, World!'
