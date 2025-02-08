@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
 
 function LoginPage() {
@@ -92,6 +92,21 @@ function LoginPage() {
                         Login
                     </button>
                 </form>
+                <div style={{ marginTop: '20px', textAlign: 'center' }}>
+                    <p style={{ color: 'black' }}>Don't have an account?</p>
+                    <Link 
+                        to="/register-user" 
+                        style={{
+                            color: '#F75F5F',
+                            textDecoration: 'none',
+                            fontWeight: 'bold',
+                            marginTop: '5px',
+                            display: 'inline-block'
+                        }}
+                    >
+                        Register here
+                    </Link>
+                </div>
             </div>
         </div>
     );
