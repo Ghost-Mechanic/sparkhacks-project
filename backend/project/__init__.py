@@ -18,7 +18,7 @@ def create_app(test_config=None):
     from project.auth.logon import logon
 
     # ----- REGISTERING BLUEPRINTS ----- #
-    app.register_blueprint(logon, url_prefix='/logon')
+    app.register_blueprint(logon)
 
     # lets us load testing configs when we want, otherwise just grabs
     # whatever is in the config.py file in the current instance folder
