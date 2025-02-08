@@ -15,7 +15,7 @@ def create_app(test_config=None):
     )
 
     # ----- BLUEPRINT IMPORTS ----- #
-    from auth.logon import logon
+    from project.auth.logon import logon
 
     # ----- REGISTERING BLUEPRINTS ----- #
     app.register_blueprint(logon, url_prefix='/logon')
