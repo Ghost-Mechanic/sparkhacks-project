@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterUser = () => {
 
@@ -12,10 +13,11 @@ const RegisterUser = () => {
         password: '',
     });
     const [error, setError] = useState('');
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("Sending form data:", formData); // Add this line
         try {
             const response = await fetch('http://localhost:5000/register_user', {
                 method: 'POST',
@@ -24,13 +26,15 @@ const RegisterUser = () => {
                 },
                 body: new URLSearchParams(formData)
             });
-
+    
+            const errorMessage = await response.text(); // Add this line
+            console.log("Server response:", response.status, errorMessage); // Add this line
+    
             if (response.ok) {
                 navigate('/swipe');
-                console.log("Login successful");
+                console.log("Registration successful");
             } else {
-                const data = await response.text();
-                setError(data || 'Registration failed');
+                setError(errorMessage || 'Registration failed');
             }
         } catch (err) {
             setError('Failed to connect to server');
