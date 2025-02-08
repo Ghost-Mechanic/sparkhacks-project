@@ -10,4 +10,5 @@ CREATE TABLE users (
 CREATE TABLE businesses (
   business_id INTEGER PRIMARY KEY AUTOINCREMENT,
   business_name TEXT UNIQUE NOT NULL,
+  password TEXT NOT NULL
 );

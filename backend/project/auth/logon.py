@@ -27,17 +27,39 @@ def register_user():
         # if all is good, we put them in the database.
         if error is None:
             try:
-                db.execute("INSERT INTO user (username, password) VALUES (?,?)", (username, password))
+                db.execute("INSERT INTO users (username, password) VALUES (?,?)", (username, password))
                 db.commit()
             except db.IntegrityError:
                 error = f"User {username} is already registered."
             else:
                 return redirect(url_for("logon.login")) # redirects user to login page once they have registered.
-    return
+            
+    return # TO DO !!! FINISH THIS 
 
 @logon.route('/register_business', methods=['GET', 'POST'])
 def register_business():
-    return
+    if request.method == 'POST':
+        business_name = request.form['business_name']
+        password = request.form['password']
+        db = get_db()
+        error = None
+
+        # check to make sure the user actually filled out the forms correctly.
+        if not business_name:
+            error = 'Business name is required.'
+        elif not password:
+            error = 'Password is required.'
+
+        # if all is good, we put them in the database.
+        if error is None:
+            try:
+                db.execute("INSERT INTO businesses (business_name, password) VALUES (?,?)", (business_name, password))
+                db.commit()
+            except db.IntegrityError:
+                error = f"User {business_name} is already registered."
+            else:
+                return redirect(url_for("logon.login")) # redirects user to login page once they have registered.
+        return #TO DO !! FINISH THIS 
 
 
 @logon.route('/login', methods=('GET', 'POST'))
