@@ -1,7 +1,4 @@
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Asap+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=DynaPuff:wght@400..700&display=swap');
-</style>
-
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import forumImage from './assets/compass.png';
 import swipeImage from './assets/mainSwipeIcon.png';
@@ -11,6 +8,13 @@ import BusinessCard from "./BusinessCard.jsx";
 function SwipePage() {
     const navigate = useNavigate();
 
+    useEffect(() => {
+        const link = document.createElement("link");
+        link.href = "https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap";
+        link.rel = "stylesheet";
+        document.head.appendChild(link);
+    }, []);
+
     const handleProfileClick = () => {
         navigate('/user-dashboard');
     };
@@ -19,23 +23,19 @@ function SwipePage() {
         navigate('/forums-page');
     };
 
-
     return (
         <div style={styles.mainContainer}>
             <div style={styles.appName}>
-                <h1>BiteSwipe</h1>
+                <h1 style={styles.appTitle}>BiteSwipe</h1>
             </div>
 
-            {/* <div style={styles.businessCard}> </div> */}
             <BusinessCard />
-
 
             <footer style={styles.footer}>
                 <div style={styles.footerImages}>
                     <img src={forumImage} height="32px" width="32px" alt="Forum" onClick={handleForumsClick} style={styles.profileImage} />
                     <img src={swipeImage} height="44px" width="44px" alt="Swipe" style={styles.profileImage} />
                     <img src={profileImage} height="32px" width="32px" alt="Profile" onClick={handleProfileClick} style={styles.profileImage} />
-
                 </div>
             </footer>
         </div>
@@ -56,10 +56,14 @@ const styles = {
         marginTop: "-20px",
     },
     appName: {
-        fontFamily: 'DynaPuff, sans-serif',
-        fontSize: '1rem',
+        textAlign: "center",
+    },
+    appTitle: {
+        fontFamily: '"DynaPuff", sans-serif',
+        fontSize: '2rem',
         color: '#333',
         marginTop: '-20px',
+        marginBottom: '60px',
     },
     businessCard: {
         width: '80%',

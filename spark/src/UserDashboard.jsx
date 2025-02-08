@@ -158,8 +158,8 @@ const styles = {
     fontFamily: 'DynaPuff, sans-serif',
     fontSize: '1rem',
     color: '#333',
-    marginTop: '-165px',
-    marginBottom: '70px',
+    marginTop: '-150px',
+    marginBottom: '60px',
   },
   columns: {
     display: "flex",

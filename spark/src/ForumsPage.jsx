@@ -123,6 +123,7 @@ const styles = {
     alignItems: "center",
     height: "calc(100vh - 60px)",
     width: "100vw",
+    height:"100vh",
     backgroundColor: "white",
     overflowY: "auto",
     paddingBottom: "60px",
