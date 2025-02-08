@@ -9,7 +9,6 @@ CREATE TABLE users (
 
 CREATE TABLE businesses (
   business_id INTEGER PRIMARY KEY AUTOINCREMENT,
-  business_name TEXT UNIQUE NOT NULL
+  business_name TEXT UNIQUE NOT NULL,
   password TEXT NOT NULL
-  FOREIGN KEY (author_id) REFERENCES user (id)
 );
