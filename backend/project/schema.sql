@@ -33,3 +33,9 @@ CREATE TABLE friendships (
   FOREIGN KEY (user2) REFERENCES users(username),
   UNIQUE(user1, user2)
 );
+
+INSERT INTO businesses (business_name, password, business_type, about_me) VALUES 
+  ('Gosu Tea', 'pass123', 'Restaurant', 'Serving delicious boba by Wright College, worth your time and money!'),
+  ('Slim''s', 'pass456', 'Restaurant', 'Serving yummy and loaded sandwiches and milkshakes to Ravenswood and beyond!'),
+  ('Bowls of Rice', 'pass789', 'Restaurant', 'Your one-stop shop for healthy, delicious Asian rice bowls and teas!'),
+  ('Pequod''s Pizza', 'pass321', 'Restaurant', 'Chicago Famous deep dish pizza in Morton Grove and West Lincoln Park - to die for!');
