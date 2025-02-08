@@ -17,8 +17,8 @@ const UserDashboard = () => {
     { name: "Evelyn Johnson", username: "@evelynj", active: true },
     { name: "Claudia Varnas", username: "@claudiav", active: true },
     { name: "Mauricio Alvarez", username: "@mauricioa", active: true },
-    { name: "Taylor Smith", username: "@taylors", active: true },
-    { name: "Mark Baltro", username: "@markb", active: true },
+    { name: "Omar Ibrahim", username: "@omari", active: true },
+    { name: "Gonzalo Bello", username: "@gonzalob", active: true },
     { name: "Jordan Lee", username: "@jordanl", active: false },
     { name: "Morgan Reed", username: "@morganr", active: false },
     { name: "John Adams", username: "@johna", active: false },
@@ -36,7 +36,7 @@ const UserDashboard = () => {
   };
 
   const handleSwipeClick = () => {
-    navigate('/');
+    navigate('/swipe');
   };
   
   const handleForumsClick = () => {
@@ -63,8 +63,8 @@ const UserDashboard = () => {
             <h3 style={styles.subtitle}>Your Patterns</h3>
             <hr style={{ ...styles.divider, width: "20%" }} />
             <ul style={styles.list}>
-              <li>Your most visited category is “Restaurant”</li>
-              <li>Your favorite cuisine is “Greek”</li>
+              <li>Your most visited category is "Restaurant"</li>
+              <li>Your favorite cuisine is "Mexican"</li>
               <li>You've swiped an average of 15 small businesses this week</li>
               <li>You've liked an average of 4.6 businesses this week</li>
             </ul>

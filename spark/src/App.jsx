@@ -2,12 +2,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Im
 import SwipePage from './SwipePage';
 import UserDashboard from './UserDashboard';
 import ForumsPage from "./ForumsPage";
+import RegisterUser from "./RegisterUser";
 
 function App() {
   return (
-    <Router> 
+    <Router basename="/sparkhacks-project"> 
       <Routes>
         <Route path="/" element={<SwipePage />} />
+        <Route path="/swipe" element={<SwipePage />} />
         <Route path="/user-dashboard" element={<UserDashboard />} />
         <Route path="/forums-page" element={<ForumsPage />} />
       </Routes>

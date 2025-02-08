@@ -23,7 +23,7 @@ const RegisterUser = () => {
             });
 
             if (response.ok) {
-                // navigate('/login');
+                navigate('/swipe');
                 console.log("Login successful");
             } else {
                 const data = await response.text();

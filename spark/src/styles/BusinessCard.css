@@ -6,7 +6,7 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, .9)), url("../assets/coffeeShopImage.png");
     background-size: cover; 
     width: 80%;
-    height: 75%;
+    height: 90%;
     border-radius: 25px;
     margin-bottom: 80px;
 }

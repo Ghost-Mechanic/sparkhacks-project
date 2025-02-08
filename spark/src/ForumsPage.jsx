@@ -37,7 +37,7 @@ const ForumsPage = () => {
         <img src={restaurantImage} alt="Profile" style={styles.profilePic} />
         <div style={styles.forumContent}>
           <h3 style={styles.forumTitle}>B'Gabs Goodies</h3>
-          <a href="https://www.bgabsgoodies.com/" style={styles.forumLink}>https://www.bgabsgoodies.com/</a>
+          <a href="https://www.instagram.com/bgabsvegankitchen/?hl=en" style={styles.forumLink}>https://www.instagram.com/bgabsvegankitchen/?hl=en</a>
           <p style={styles.forumText}><strong>Who Are We?</strong></p>
           <p style={styles.forumText}>
             We believe that every person that desires to upgrade their food choices to include more live and vibrant fresh fruit, veggies, nuts and seeds should be able to do so. We value and promote the practice of clean living by using organic and local products when available and offer additional life-enhancing tools to aid in your transition to a cleaner, healthier, more vibrant lifestyle.
@@ -49,7 +49,7 @@ const ForumsPage = () => {
         <img src={restaurantImage} alt="Profile" style={styles.profilePic} />
         <div style={styles.forumContent}>
           <h3 style={styles.forumTitle}>B'Gabs Goodies</h3>
-          <a href="https://www.bgabsgoodies.com/" style={styles.forumLink}>https://www.bgabsgoodies.com/</a>
+          <a href="https://www.instagram.com/bgabsvegankitchen/?hl=en" style={styles.forumLink}>https://www.instagram.com/bgabsvegankitchen/?hl=en</a>
           <p style={styles.forumText}><strong>Who Are We?</strong></p>
           <p style={styles.forumText}>
             We believe that every person that desires to upgrade their food choices to include more live and vibrant fresh fruit, veggies, nuts and seeds should be able to do so. We value and promote the practice of clean living by using organic and local products when available and offer additional life-enhancing tools to aid in your transition to a cleaner, healthier, more vibrant lifestyle.
@@ -61,7 +61,7 @@ const ForumsPage = () => {
         <img src={restaurantImage} alt="Profile" style={styles.profilePic} />
         <div style={styles.forumContent}>
           <h3 style={styles.forumTitle}>B'Gabs Goodies</h3>
-          <a href="https://www.bgabsgoodies.com/" style={styles.forumLink}>https://www.bgabsgoodies.com/</a>
+          <a href="https://www.instagram.com/bgabsvegankitchen/?hl=en" style={styles.forumLink}>https://www.instagram.com/bgabsvegankitchen/?hl=en</a>
           <p style={styles.forumText}><strong>Who Are We?</strong></p>
           <p style={styles.forumText}>
             We believe that every person that desires to upgrade their food choices to include more live and vibrant fresh fruit, veggies, nuts and seeds should be able to do so. We value and promote the practice of clean living by using organic and local products when available and offer additional life-enhancing tools to aid in your transition to a cleaner, healthier, more vibrant lifestyle.
@@ -73,7 +73,7 @@ const ForumsPage = () => {
         <img src={restaurantImage} alt="Profile" style={styles.profilePic} />
         <div style={styles.forumContent}>
           <h3 style={styles.forumTitle}>B'Gabs Goodies</h3>
-          <a href="https://www.bgabsgoodies.com/" style={styles.forumLink}>https://www.bgabsgoodies.com/</a>
+          <a href="https://www.instagram.com/bgabsvegankitchen/?hl=en" style={styles.forumLink}>https://www.instagram.com/bgabsvegankitchen/?hl=en</a>
           <p style={styles.forumText}><strong>Who Are We?</strong></p>
           <p style={styles.forumText}>
             We believe that every person that desires to upgrade their food choices to include more live and vibrant fresh fruit, veggies, nuts and seeds should be able to do so. We value and promote the practice of clean living by using organic and local products when available and offer additional life-enhancing tools to aid in your transition to a cleaner, healthier, more vibrant lifestyle.
@@ -85,7 +85,7 @@ const ForumsPage = () => {
         <img src={restaurantImage} alt="Profile" style={styles.profilePic} />
         <div style={styles.forumContent}>
           <h3 style={styles.forumTitle}>B'Gabs Goodies</h3>
-          <a href="https://www.bgabsgoodies.com/" style={styles.forumLink}>https://www.bgabsgoodies.com/</a>
+          <a href="https://www.instagram.com/bgabsvegankitchen/?hl=en" style={styles.forumLink}>https://www.instagram.com/bgabsvegankitchen/?hl=en</a>
           <p style={styles.forumText}><strong>Who Are We?</strong></p>
           <p style={styles.forumText}>
             We believe that every person that desires to upgrade their food choices to include more live and vibrant fresh fruit, veggies, nuts and seeds should be able to do so. We value and promote the practice of clean living by using organic and local products when available and offer additional life-enhancing tools to aid in your transition to a cleaner, healthier, more vibrant lifestyle.
@@ -97,7 +97,7 @@ const ForumsPage = () => {
         <img src={restaurantImage} alt="Profile" style={styles.profilePic} />
         <div style={styles.forumContent}>
           <h3 style={styles.forumTitle}>B'Gabs Goodies</h3>
-          <a href="https://www.bgabsgoodies.com/" style={styles.forumLink}>https://www.bgabsgoodies.com/</a>
+          <a href="https://www.instagram.com/bgabsvegankitchen/?hl=en" style={styles.forumLink}>https://www.instagram.com/bgabsvegankitchen/?hl=en</a>
           <p style={styles.forumText}><strong>Who Are We?</strong></p>
           <p style={styles.forumText}>
             We believe that every person that desires to upgrade their food choices to include more live and vibrant fresh fruit, veggies, nuts and seeds should be able to do so. We value and promote the practice of clean living by using organic and local products when available and offer additional life-enhancing tools to aid in your transition to a cleaner, healthier, more vibrant lifestyle.
@@ -108,7 +108,7 @@ const ForumsPage = () => {
       <footer style={styles.footer}>
         <div style={styles.footerImages}>
           <img src={forumsIcon} height="32px" width="32px" alt="Forum" style={styles.profileImage}/>
-          <img src={mainSwipeIcon} height="44px" width="44px" alt="Swipe" onClick={() => navigate('/')} style={styles.profileImage} />
+          <img src={mainSwipeIcon} height="44px" width="44px" alt="Swipe" onClick={() => navigate('/swipe')} style={styles.profileImage} />
           <img src={userProfileIcon} height="32px" width="32px" alt="Profile" onClick={() => navigate('/user-dashboard')} style={styles.profileImage} />
         </div>
       </footer>
