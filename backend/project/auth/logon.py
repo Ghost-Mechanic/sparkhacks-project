@@ -10,6 +10,7 @@ logon = Blueprint('logon', __name__)
 @cross_origin()
 def login():
     if request.method == 'POST':
+        print("Received form data:", request.form)  # Debug log
         username = request.form['username']
         password = request.form['password']
         db = get_db()
@@ -29,11 +30,13 @@ def login():
 
         if user is None:
             error = 'Invalid username or password'
+            print("Login error:", error)  # Debug log
             return error, 401
 
+        print("Login successful for user:", username)  # Debug log
         return 'Success', 200
 
-    return render_template('auth/login.html')
+    return 'Method not allowed', 405  # For GET requests
 
 @logon.route('/register_user', methods=['GET', 'POST'])
 @cross_origin()
@@ -66,42 +69,6 @@ def register_user():
         return error, 400
     
     return 'Method not allowed', 405 
-
-
-# @logon.route('/login', methods=('GET', 'POST'))
-# def login():
-#     if request.method == 'POST':
-#         username = request.form['username']
-#         password = request.form['password']
-#         db = get_db()
-#         error = None
-
-#         # we handle user logins first.
-#         # checking to see if the user login worked.
-#         user = db.execute( 'SELECT * FROM users WHERE username = ? AND password = ?', (username,password)).fetchone()
-
-#         # if the username & password does not match a user, maybe a business was trying to log in?
-#         if user is None:
-#             business = db.execute('SELECT * FROM businesses WHERE business_name = ? AND password = ?', (username, password)).fetchone()
-
-#         # If both queries were none, the person input an incorrect username or password.
-#         if business is None:
-#             error = 'Incorrect username and/or password.'
-        
-#         # if either query worked, let's log in!
-#         if error is None:
-#             if user:
-#                 # unsure exactly what session does. need to look into this.
-#                 session.clear() 
-#                 session['user_id'] = user['id']
-#                 session['user_type'] = 'user'
-#             else:
-#                 session['user_id'] = business['business_id']
-#                 session['user_type'] = 'business'
-#             return # SHOULD BE redirect(url_for(INSERT POST-LOGIN HOMEPAGE HERE))
-        
-#         flash(error)
-#     return "Login successful" # NEED TO DO BOTH RETURNS LATER!!
 
 @logon.route('/logout')
 def logout():
