@@ -1,6 +1,6 @@
 import os
-
 from flask import Flask
+
 
 def create_app(test_config=None):
     # create and configure the app
@@ -13,6 +13,12 @@ def create_app(test_config=None):
         # defines the relative path to where we're keeping our db
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
     )
+
+    # ----- BLUEPRINT IMPORTS ----- #
+    from auth.logon import logon
+
+    # ----- REGISTERING BLUEPRINTS ----- #
+    app.register_blueprint(logon, url_prefix='/logon')
 
     # lets us load testing configs when we want, otherwise just grabs
     # whatever is in the config.py file in the current instance folder
