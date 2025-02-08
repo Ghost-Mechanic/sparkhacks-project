@@ -7,14 +7,15 @@ CREATE TABLE users (
   password TEXT NOT NULL,
   city TEXT NOT NULL,
   age INTEGER NOT NULL,
-  favorite_food TEXT NOT NULL,
+  favorite_food TEXT NOT NULL
 );
 
 CREATE TABLE likedBusinesses (
   username TEXT NOT NULL,
   business_name TEXT NOT NULL,
   FOREIGN KEY (username) REFERENCES users(username),
-  FOREIGN KEY (business_name) REFERENCES business(business_name)
+  FOREIGN KEY (business_name) REFERENCES businesses(business_name),
+  PRIMARY KEY (username, business_name)
 );
 
 CREATE TABLE businesses (
