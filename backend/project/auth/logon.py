@@ -1,3 +1,5 @@
+# ABOUT: This page handles all logon logic.
+
 from flask import Blueprint
 
 logon = Blueprint('logon', __name__)
