@@ -10,6 +10,7 @@ function App() {
     <Router basename="/sparkhacks-project"> 
       <Routes>
         <Route path="/" element={<LoginPage />} />
+        <Route path="/register-user" element={<RegisterUser />} />
         <Route path="/swipe" element={<SwipePage />} />
         <Route path="/user-dashboard" element={<UserDashboard />} />
         <Route path="/forums-page" element={<ForumsPage />} />
