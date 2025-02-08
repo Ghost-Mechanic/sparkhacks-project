@@ -8,7 +8,7 @@ function App() {
   return (
     <Router basename="/sparkhacks-project"> 
       <Routes>
-        <Route path="/" element={<SwipePage />} />
+        <Route path="/" element={<RegisterUser />} />
         <Route path="/swipe" element={<SwipePage />} />
         <Route path="/user-dashboard" element={<UserDashboard />} />
         <Route path="/forums-page" element={<ForumsPage />} />
