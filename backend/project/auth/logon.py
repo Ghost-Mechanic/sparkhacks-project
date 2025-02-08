@@ -85,13 +85,18 @@ def login():
         
         # if either query worked, let's log in!
         if error is None:
-            # unsure exactly what session does. need to look into this.
-            session.clear() 
-            session['user_id'] = user['id']
+            if user:
+                # unsure exactly what session does. need to look into this.
+                session.clear() 
+                session['user_id'] = user['id']
+                session['user_type'] = 'user'
+            else:
+                session['user_id'] = business['business_id']
+                session['user_type'] = 'business'
             return # SHOULD BE redirect(url_for(INSERT POST-LOGIN HOMEPAGE HERE))
         
         flash(error)
-    return # NEED TO DO BOTH RETURNS LATER!!
+    return "Login successful" # NEED TO DO BOTH RETURNS LATER!!
 
 @logon.route('/logout')
 def logout():
