@@ -1,6 +1,12 @@
 import { useState } from 'react';
 
 const RegisterUser = () => {
+
+    const containerStyle = {
+        justifyContent: "center",
+        alignItems: "center",
+    };
+
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -33,11 +39,10 @@ const RegisterUser = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
-            <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow">
-                <h2 className="text-center text-3xl font-bold">Register User Account</h2>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundImage: 'linear-gradient(to top,rgb(252, 160, 150), #F75F5F)'  }}>
+            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', maxWidth : '450px', width:'100%', height:'30%',backgroundColor: 'rgba(255, 255, 255, 0.85)', borderRadius:'12px', border:'10px solid white'}}>
+                <h2 style={{padding: '12px', justifyContent:'center', color: 'black'}}>Register User Account</h2>
                 {error && <div className="text-red-500 text-center">{error}</div>}
-                
                 <form onSubmit={handleSubmit} className="mt-8 space-y-6">
                     <div className="space-y-4">
                         <div>
@@ -48,7 +53,7 @@ const RegisterUser = () => {
                                 id="username"
                                 type="text"
                                 required
-                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+                                style={{borderRadius: '8px'}}
                                 value={formData.username}
                                 onChange={(e) => setFormData({
                                     ...formData,
@@ -64,7 +69,7 @@ const RegisterUser = () => {
                                 id="password"
                                 type="password"
                                 required
-                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+                                style={{borderRadius: '8px'}}
                                 value={formData.password}
                                 onChange={(e) => setFormData({
                                     ...formData,
@@ -76,7 +81,7 @@ const RegisterUser = () => {
 
                     <button
                         type="submit"
-                        className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
+                        style={{backgroundColor: 'rgba(255, 255, 255, 0.32)', borderRadius: '8px'}}
                     >
                         Register
                     </button>
