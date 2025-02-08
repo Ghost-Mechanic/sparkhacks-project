@@ -1,6 +1,6 @@
 # ABOUT: This page handles all logon logic.
 
-from flask import Blueprint, request
+from flask import Blueprint, request, redirect, url_for
 from project.db import get_db
 
 logon = Blueprint('logon', __name__)
@@ -32,9 +32,18 @@ def register_user():
             except db.IntegrityError:
                 error = f"User {username} is already registered."
             else:
-                return # TO DO !!!!!!!
-
+                return redirect(url_for("logon.login")) # redirects user to login page once they have registered.
+    return
 
 @logon.route('/register_business', methods=['GET', 'POST'])
 def register_business():
     return
+
+
+@logon.route('/login', methods=('GET', 'POST'))
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        db = get_db()
+        error = None
