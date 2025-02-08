@@ -2,13 +2,11 @@ import os
 from flask import Flask
 from flask_cors import CORS
 
-
-
 def create_app(test_config=None):
     # create and configure the app
     # __name__ is used whenever this file is imported
     # 2nd arg makes config files relative to the instance folder
-    app = Flask(__name__, instance_relative_config=True)
+    app = Flask(__name__, static_folder='../spark/dist', static_url_path='/')
     CORS(app)
     # sets default configuration stuff
     app.config.from_mapping(
@@ -56,11 +54,12 @@ def create_app(test_config=None):
 
     @app.route('/')
     def serve_react():
-        return send_from_directory('../spark/dist', 'index.html')
+        return send_from_directory(app.static_folder, 'index.html')
+
 
     @app.route('/<path:path>')
     def serve_static_files(path):
-        return send_from_directory('../spark/dist', path)
+        return send_from_directory(app.static_folder, path)
 
 
     return app
