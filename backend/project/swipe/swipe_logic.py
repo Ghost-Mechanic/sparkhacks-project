@@ -23,7 +23,7 @@ def business_profile(business_name):
                        (username, business_name))
             db.commit()
         except db.IntegrityError:
-            return jsonify({'error': 'Business already liked'}), 400
+            return jsonify({'error': 'IGNORE'}), 400 #idk what 400 does lol
         
     if request.method == 'POST' and 'not_liked' in request.form:
         # now we get the info of the next business

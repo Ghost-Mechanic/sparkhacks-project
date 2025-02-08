@@ -14,14 +14,6 @@ CREATE TABLE likedBusinesses (
   FOREIGN KEY (business_name) REFERENCES business(business_name)
 );
 
-CREATE TABLE viewedBusinesses(
-  business_name TEXT NOT NULL
-  username TEXT NOT NULL
-  FOREIGN KEY (username) REFERENCES users(username),
-  FOREIGN KEY (business_name) REFERENCES business(business_name)
-  was_liked INTEGER
-);
-
 CREATE TABLE businesses (
   business_id INTEGER PRIMARY KEY AUTOINCREMENT,
   business_name TEXT UNIQUE NOT NULL,
