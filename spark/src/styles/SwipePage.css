@@ -1,0 +1,38 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+}
+
+.app-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.business-card {
+    width: 60%;
+    height: 45%;
+    background-color: black;
+    padding: 40px;
+    border-radius: 16px;
+    justify-self: center;
+    align-self: center;
+}
+
+.footer {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(224, 224, 224);
+    border-top: 1px solid black;
+}
+
+.footer-images {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
