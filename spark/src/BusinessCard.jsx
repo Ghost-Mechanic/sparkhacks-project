@@ -6,6 +6,10 @@ import favorite from "./assets/save.png";
 import verified from "./assets/verifiedIcon.png";
 import coffeeShopImage from "./assets/coffeeShopImage.png";
 import bakeryImage from "./assets/bakeryImage.png";
+import grillImage from "./assets/restaurantImage.jpg"; // Add image for grill
+import sushiImage from "./assets/sushiImage.png"; // Add image for sushi
+import italianImage from "./assets/italianImage.jpg"; // Add image for italian
+import veganImage from "./assets/veganImage.png"; // Add image for vegan
 
 const sampleBusinesses = [
   {
@@ -19,6 +23,30 @@ const sampleBusinesses = [
     type: "Cafe/Bakery",
     description: "\"We've been serving our community with fresh pastries and specialty coffee for over a decade. Every recipe has been perfected through years of dedication.\"",
     image: bakeryImage
+  },
+  {
+    name: "The Grill Spot",
+    type: "Grill",
+    description: "\"Serving mouth-watering grilled dishes for over 15 years. Come taste our signature ribs and smoky burgers, perfect for any meat lover.\"",
+    image: grillImage
+  },
+  {
+    name: "Sushi Haven",
+    type: "Sushi Bar",
+    description: "\"A Japanese sushi restaurant offering fresh and vibrant sushi, sashimi, and rolls. A peaceful spot for a great dining experience.\"",
+    image: sushiImage
+  },
+  {
+    name: "La Dolce Vita",
+    type: "Italian Restaurant",
+    description: "\"Authentic Italian cuisine in the heart of the city. Pasta made fresh daily and wood-fired pizza that transports you straight to Italy.\"",
+    image: italianImage
+  },
+  {
+    name: "Green Leaf Café",
+    type: "Vegan Restaurant",
+    description: "\"Serving delicious plant-based dishes. We believe in healthy, sustainable, and tasty food for everyone, no matter their diet.\"",
+    image: veganImage
   }
 ];
 
