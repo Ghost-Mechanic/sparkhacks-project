@@ -1,6 +1,9 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Asap+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=DynaPuff:wght@400..700&display=swap');
+</style>
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import addFriendIcon from "./assets/addFriendIcon.png";
 import invitationIcon from "./assets/invitationIcon.png";
 import forumsIcon from "./assets/forumsIcon.png";
@@ -38,7 +41,10 @@ const UserDashboard = () => {
 
   return (
     <div style={styles.container}>
-      
+      <div style={styles.appName}>
+        <h1>BiteSwipe</h1>
+      </div>
+
       <div style={styles.columns}>
         <div style={styles.leftColumn}>
           <div style={styles.profileContainer}>
@@ -124,7 +130,7 @@ const UserDashboard = () => {
       <footer style={styles.footer}>
         <div style={styles.footerImages}>
           <img src={forumsIcon} height="32px" width="32px" alt="Forum" />
-          <img src={mainSwipeIcon} height="44px" width="44px" alt="Swipe" onClick={handleSwipeClick} style={styles.profileImage}/>
+          <img src={mainSwipeIcon} height="44px" width="44px" alt="Swipe" onClick={handleSwipeClick} style={styles.profileImage} />
           <img src={userProfileIcon} height="32px" width="32px" alt="Profile" style={styles.profileImage} />
         </div>
       </footer>
@@ -143,16 +149,22 @@ const styles = {
     position: "relative",
     marginTop: "-20px",
   },
+  appName: {
+    fontFamily: 'DynaPuff, sans-serif', 
+    fontSize: '1rem',
+    color: '#333',
+    marginTop: '-165px',
+    marginBottom: '70px',
+  },
   columns: {
     display: "flex",
     justifyContent: "center",
     width: "100%",
     maxWidth: "1200px",
     gap: "0px",
-    // marginTop: "10px",
   },
   leftColumn: {
-    width: "50%", // Ensuring equal width
+    width: "50%",
     height: "500px",
     backgroundColor: "#FF8274",
     padding: "40px",
@@ -163,7 +175,7 @@ const styles = {
     paddingBottom: "60px",
   },
   rightColumn: {
-    width: "30%", // Matching left column
+    width: "30%",
     height: "500px",
     backgroundColor: "#F75F5F",
     padding: "40px",
