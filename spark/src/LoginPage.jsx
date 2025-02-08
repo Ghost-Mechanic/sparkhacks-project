@@ -1,6 +1,5 @@
-
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-
 
 function LoginPage() {
     const [formData, setFormData] = useState({
@@ -10,13 +9,14 @@ function LoginPage() {
 
 
     const [error, setError] = useState('');
-    // const navigate = useNavigate();
-
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("Sending login data:", formData); // Debug log
+        
         try {
-            const response = await fetch('http://localhost:5000/register_user', {
+            const response = await fetch('http://localhost:5000/login', {  // Changed to login endpoint
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -24,20 +24,20 @@ function LoginPage() {
                 body: new URLSearchParams(formData)
             });
 
+            const data = await response.text();
+            console.log("Server response:", response.status, data); // Debug log
 
             if (response.ok) {
-                // navigate('/login');
                 console.log("Login successful");
+                navigate('/swipe');  // Navigate to swipe page after successful login
             } else {
-                const data = await response.text();
-                setError(data || 'Registration failed');
+                setError(data || 'Login failed');
             }
         } catch (err) {
             setError('Failed to connect to server');
             console.error('Error:', err);
         }
     };
-
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
