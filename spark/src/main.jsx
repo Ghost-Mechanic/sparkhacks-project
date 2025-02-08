@@ -1,11 +1,11 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import './styles/index.css';
-//import App from './App.jsx'
-import SwipePage from './SwipePage.jsx';
+// Make sure you import App.jsx, not SwipePage directly
+import App from './App.jsx'; 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <SwipePage />
-  </StrictMode>,
-)
+    <App />
+  </StrictMode>
+);

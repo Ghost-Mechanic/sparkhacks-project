@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import addFriendIcon from "./assets/addFriendIcon.png";
 import invitationIcon from "./assets/invitationIcon.png";
@@ -10,14 +11,19 @@ import mockPfp from "./assets/1707693186054.jpg";
 
 const UserDashboard = () => {
   const [friends, setFriends] = useState([
-    { name: "Alex Johnston", username: "@alexj", active: true },
+    { name: "Evelyn Johnson", username: "@evelynj", active: true },
+    { name: "Claudia Varnas", username: "@claudiav", active: true },
+    { name: "Mauricio Alvarez", username: "@mauricioa", active: true },
     { name: "Taylor Smith", username: "@taylors", active: true },
-    { name: "Mark Baltro", username: "@taylors", active: true },
+    { name: "Mark Baltro", username: "@markb", active: true },
     { name: "Jordan Lee", username: "@jordanl", active: false },
     { name: "Morgan Reed", username: "@morganr", active: false },
-    { name: "John Adams", username: "@morganr", active: false },
-    { name: "Katie Hall", username: "@morganr", active: false },
+    { name: "John Adams", username: "@johna", active: false },
+    { name: "Katie Hall", username: "@katieh", active: false },
+    { name: "Katie Hall", username: "@katieh1", active: false },
   ]);
+
+  const navigate = useNavigate();
 
   const handleAddFriend = () => {
     const newFriend = prompt("Enter a username or name to send a friend request:");
@@ -26,13 +32,17 @@ const UserDashboard = () => {
     }
   };
 
+  const handleSwipeClick = () => {
+    navigate('/');
+  };
+
   return (
     <div style={styles.container}>
+      
       <div style={styles.columns}>
-        {/* Left Column - User Info */}
         <div style={styles.leftColumn}>
           <div style={styles.profileContainer}>
-            <img src={mockPfp} alt="Profile" width={200} height={200} style={styles.profileImage} />
+            <img src={mockPfp} alt="ProfilePicture" width={200} height={200} style={styles.profilePictureImage} />
             <div style={styles.textContainer}>
               <h2 style={styles.title}>Justin Cervantes</h2>
               <p style={styles.username}>@ghost_mechanic</p>
@@ -51,7 +61,6 @@ const UserDashboard = () => {
           </div>
         </div>
 
-        {/* Right Column - Friends List */}
         <div style={styles.rightColumn}>
           <div style={styles.friendsHeader}>
             <h3 style={styles.friendsTitle}>Friends</h3>
@@ -109,11 +118,16 @@ const UserDashboard = () => {
               </div>
             ))}
           </div>
-
-
-
         </div>
       </div>
+
+      <footer style={styles.footer}>
+        <div style={styles.footerImages}>
+          <img src={forumsIcon} height="32px" width="32px" alt="Forum" />
+          <img src={mainSwipeIcon} height="44px" width="44px" alt="Swipe" onClick={handleSwipeClick} style={styles.profileImage}/>
+          <img src={userProfileIcon} height="32px" width="32px" alt="Profile" style={styles.profileImage} />
+        </div>
+      </footer>
     </div>
   );
 };
@@ -124,52 +138,47 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    height: "90vh",
+    height: "100vh",
     backgroundColor: "white",
     position: "relative",
+    marginTop: "-20px",
   },
   columns: {
     display: "flex",
     justifyContent: "center",
-    width: "200%",
-    maxWidth: "900px",
+    width: "100%",
+    maxWidth: "1200px",
     gap: "0px",
-    marginTop: "40px",
+    // marginTop: "10px",
   },
   leftColumn: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    justifyContent: "flex-start",
-    width: "120%",
+    width: "50%", // Ensuring equal width
+    height: "500px",
     backgroundColor: "#FF8274",
     padding: "40px",
     borderTopLeftRadius: "30px",
     borderBottomLeftRadius: "30px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     textAlign: "left",
-    height: "500px",
+    paddingBottom: "60px",
   },
   rightColumn: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    justifyContent: "flex-start",
-    width: "60%",
+    width: "30%", // Matching left column
+    height: "500px",
     backgroundColor: "#F75F5F",
     padding: "40px",
     borderTopRightRadius: "30px",
     borderBottomRightRadius: "30px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     textAlign: "left",
-    height: "500px",
+    paddingBottom: "60px",
   },
   profileContainer: {
     display: "flex",
     alignItems: "center",
     marginBottom: "0px",
   },
-  profileImage: {
+  profilePictureImage: {
     borderRadius: "50%",
     marginRight: "20px",
   },
@@ -183,6 +192,7 @@ const styles = {
     listStyleType: "none",
     paddingLeft: 0,
     textAlign: "left",
+    color: "white",
   },
   title: {
     color: "white",
@@ -231,7 +241,6 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     padding: "10px 0",
-    // borderBottom: "1px solid rgba(255, 255, 255, 0.3)",
   },
   friendName: {
     fontSize: "16px",
@@ -245,11 +254,24 @@ const styles = {
   inviteIcon: {
     cursor: "pointer",
   },
-  seeMore: {
-    marginTop: "10px",
-    textAlign: "center",
-    color: "white",
-    cursor: "pointer",
+  footer: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    textAlign: 'center',
+    padding: '17.5px',
+    backgroundColor: '#FAFAFA',
+    borderTop: '1px solid black',
+  },
+  footerImages: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "200px",
+    width: "100%",
+  },
+  profileImage: {
+    cursor: 'pointer',
   },
 };
 

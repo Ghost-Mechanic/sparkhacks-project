@@ -1,59 +1,79 @@
-/* .image-gradient {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 1;
-} */
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap');
 
 .main-business-container {
     position: relative;
     z-index: -1;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/restaurantImage.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, .9)), url("../assets/coffeeShopImage.png");
     background-size: cover; 
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 75%;
+    border-radius: 25px;
+    margin-bottom: 80px;
 }
 
 .business-content {
     height: 100%;
     box-sizing: border-box;
-    gap: 24px;
-    padding: 12px;
-    padding-bottom: 24px;
+    gap: 0px;
+    padding: 50px;
+    padding-bottom: 125px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    
 }
 
 .business-name {
     color: white;
     text-shadow: 0px 0px 2px black;
     margin: 0;
+    font-size: 50px;
 }
 
 .business-type {
     color: white;
     text-shadow: 0px 0px 2px black;
+    font-size: 30px;
     margin: 0;
+    font-family: 'Afacad', sans-serif;
 }
 
 .business-description {
     color: white;
+    font-size: 30px;
     text-shadow: 0px 0px 2px black;
     overflow: auto;
+    font-family: 'Afacad', sans-serif;
 }
 
 .business-buttons {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    gap: 80px;
-    justify-content: space-around;
-    align-items: center;
-    color: white;
-    text-shadow: 0px 0px 2px black;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
 }
 
-.business-buttons img {
-    padding: 12px;
-    border-radius: 50%;
-    border: 2px solid red;
+.like-icon,
+.dislike-icon {
+    height: 90px;
+    width: 90px;
+}
+
+.dislike-icon {
+    margin-right: 30px;
+}
+
+.like-icon {
+    margin-left: 30px;
+}
+
+.verified-icon {
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
 }
