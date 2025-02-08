@@ -4,7 +4,10 @@ DROP TABLE IF EXISTS businesses;
 CREATE TABLE users (
   user_id INTEGER PRIMARY KEY AUTOINCREMENT,
   username TEXT UNIQUE NOT NULL,
-  password TEXT NOT NULL
+  password TEXT NOT NULL,
+  city TEXT NOT NULL,
+  age INTEGER NOT NULL,
+  favorite_food TEXT NOT NULL,
 );
 
 CREATE TABLE likedBusinesses (
