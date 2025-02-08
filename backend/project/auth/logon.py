@@ -37,6 +37,8 @@ def register_business():
     if request.method == 'POST':
         business_name = request.form['business_name']
         password = request.form['password']
+        business_type = request.form['business_type']
+        about_me = request.form.get('about_me', '') # syntax makes this an optional field.
         db = get_db()
         error = None
 
@@ -49,7 +51,8 @@ def register_business():
         # if all is good, we put them in the database.
         if error is None:
             try:
-                db.execute("INSERT INTO businesses (business_name, password) VALUES (?,?)", (business_name, password))
+                db.execute("INSERT INTO businesses (business_name, password, business_type, about_me) VALUES (?,?,?,?)", 
+                           (business_name, password, business_type, about_me))
                 db.commit()
             except db.IntegrityError:
                 error = f"User {business_name} is already registered."
