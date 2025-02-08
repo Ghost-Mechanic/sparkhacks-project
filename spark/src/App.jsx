@@ -3,12 +3,13 @@ import SwipePage from './SwipePage';
 import UserDashboard from './UserDashboard';
 import ForumsPage from "./ForumsPage";
 import RegisterUser from "./RegisterUser";
+import LoginPage from './LoginPage';
 
 function App() {
   return (
     <Router basename="/sparkhacks-project"> 
       <Routes>
-        <Route path="/" element={<RegisterUser />} />
+        <Route path="/" element={<LoginPage />} />
         <Route path="/swipe" element={<SwipePage />} />
         <Route path="/user-dashboard" element={<UserDashboard />} />
         <Route path="/forums-page" element={<ForumsPage />} />
